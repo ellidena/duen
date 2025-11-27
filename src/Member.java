@@ -13,6 +13,7 @@ public class Member {
         this.birthDate = birthDate;
         this.isActive = isActive;
         this.hasPaid = hasPaid;
+        this.age = calculateAge();
     }
 
     public String getName() {
@@ -27,13 +28,14 @@ public class Member {
         return isActive;
     }
 
-    public boolean isHasPaid() {
+    public boolean hasPaid() {
         return hasPaid;
     }
 
-    public boolean isCompetitor() {
-        return isCompetitor;
+    public int getAge(){
+        return age;
     }
+
 
     public int calculateAge(){
         LocalDate currentDate = LocalDate.now();
@@ -41,9 +43,13 @@ public class Member {
         return period.getYears();
     }
 
+    public String getAgeGroup(){
+        return getAge() < 18 ? "Junior" : "Senior";
+    }
+
     @Override
     public String toString(){
-        return getBirthDate()+" "+getName();
+        return getBirthDate()+" "+getName()+", Age: "+getAge();
     }
 
 

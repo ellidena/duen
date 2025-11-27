@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -6,6 +7,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         MemberRegistry memberRegistry = new MemberRegistry();
+
+        memberRegistry.addMember(new Member("George", LocalDate.of(1985,02,4), false,false));
+
 
         while (true) {
             System.out.println("  |~~~~~~~~~~~~~");
@@ -19,7 +23,7 @@ public class Main {
             input.nextLine();
             switch (number) {
                 case 1:
-                    System.out.println(memberRegistry);;
+                    System.out.println(memberRegistry);
                     break;
                 case 2:
                     input.close();
