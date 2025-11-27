@@ -37,7 +37,7 @@ public class Member {
     }
 
 
-    public int calculateAge(){
+    private int calculateAge(){
         LocalDate currentDate = LocalDate.now();
         Period period = Period.between(birthDate, currentDate);
         return period.getYears();
