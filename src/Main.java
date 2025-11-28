@@ -1,3 +1,7 @@
+import Konsol.MenuKonsol;
+import member.Member;
+import member.MemberRegistry;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -9,6 +13,12 @@ public class Main {
         MemberRegistry memberRegistry = new MemberRegistry();
 
         memberRegistry.addMember(new Member("George", LocalDate.of(1985,02,4), false,false));
+
+        try {
+            MenuKonsol.startmenu();
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
 
 
         while (true) {

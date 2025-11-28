@@ -1,3 +1,5 @@
+package member;
+
 import java.util.ArrayList;
 public class MemberRegistry {
     ArrayList<Member> members = new ArrayList<>();

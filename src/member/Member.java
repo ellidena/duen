@@ -1,3 +1,5 @@
+package member;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -54,7 +56,7 @@ public class Member {
         if(!isActive){
             this.yearlyFee = 500;
         }
-        else if(getAge() > 60){
+        else if(getAge() >= 60){
             this.yearlyFee = 1600*0.75;
         }
         else if (getAgeGroup() == "Senior") {
