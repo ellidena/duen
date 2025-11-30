@@ -9,7 +9,6 @@ public class Menu {
     public Menu(){}
 
     public void startMenu(){
-        //loop 1:
         while (true){
             System.out.println("   NAVIGATIONS-MENU:");
             System.out.println("""
