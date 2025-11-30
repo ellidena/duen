@@ -8,7 +8,7 @@ public class MenuKonsol {
 
     }
 
-    public void StartMenuKonsol(){
+    public void startMenuKonsol(){
         // List list = new List();
 
         //loop 1:
@@ -97,6 +97,7 @@ public class MenuKonsol {
             System.out.println("3. Redigere Medlem");
             System.out.println("4. Slet Medlem");
             System.out.println("5. Find medlem");
+            System.out.println("6. Tilbage");
             System.out.println("Afslut");
             // kan man gå tilbage?
 
@@ -125,10 +126,11 @@ public class MenuKonsol {
                         // memberList.viewAnnualFee();
                         break;
                     case 6:
-                        // Afslut
+                        // tilbage
+                        startMenuKonsol();
                         break;
                     case 7:
-                        // Tilbage f.eks
+                        // afslut
                         // break loop2;
                         break;
                     default:
@@ -147,7 +149,8 @@ public class MenuKonsol {
             System.out.println("Kasserer");
             System.out.println("1. Se restance");
             System.out.println("2. Se forventet kontingentindtægt");
-            System.out.println("3. Afslut");
+            System.out.println("3. Tilbage");
+            System.out.println("4. Afslut");
             try {
                 Scanner formandMain = new Scanner(System.in); // whyy the new scanner
                 int formandChoice = formandMain.nextInt();
@@ -161,6 +164,9 @@ public class MenuKonsol {
                         //memberList.printExpecterRevenue();
                         break;
                     case 3:
+                        startMenuKonsol();
+                        break;
+                    case 4:
                         // exit
                         break;
                     default:

@@ -16,7 +16,7 @@ public class Main {
         memberRegistry.addMember(new Member("George", LocalDate.of(1985,02,4), false,false));
 
         try {
-            menuKonsol.StartMenuKonsol();
+            menuKonsol.startMenuKonsol();
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
