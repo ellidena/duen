@@ -41,11 +41,11 @@ public class Menu {
                     case 1:
                         //Formand
                         //evt login
-                        loop2();
+                        loop1();
                         break;
                     case 2:
                         // evt kasserer login
-                        loop3();
+                        loop2();
                         break;
                     case 3:
                         // evt Træner login
@@ -136,7 +136,7 @@ public class Menu {
         return period.getYears();
     }
 
-    public void loop2(){
+    public void loop1(){
         while (true){
             System.out.println("   FORMAND:");
             System.out.println("1. Se Medlemsliste");
@@ -205,7 +205,7 @@ public class Menu {
         }
     }
 
-    public void loop3(){
+    public void loop2(){
         while (true){
             System.out.println("Kasserer:");
             System.out.println("1. Se restance");
