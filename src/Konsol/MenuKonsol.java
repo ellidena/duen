@@ -114,31 +114,31 @@ public class MenuKonsol {
         System.out.println(lines);
     }
 
+    // Ber brugeren at indtaste fødselsdato i formatet ÅÅÅÅ-MM-DD
+    // og konverterer det til en localDate
     public void enterBirthDate(){
         /*
-        HEJ!! HER KAN MAN LAVE EN CUSTOM EXCEPTION
-        HVIS BRUGEREN TASTER EN UGYLDIG FØDSELSDATO IND,
-        F.EKS AT PERSONEN ER FOR UNG, ELLER OVER 120 ÅR
+        HEJ LAV EN ESCAPE "tast 'q' for at gå tilbage" f.eks
          */
-        boolean again = true;
+        boolean again = true; // Så at metoden kan køres som et loop
         Scanner reader = new Scanner(System.in);
         System.out.print("FØDSELSDATO (ÅÅÅÅ-MM-DD): ");
-        while (again){
+        while (again){ // så længe again er true gentages dette
             try {
                 String date = reader.nextLine();
-                int birthYear = Integer.parseInt(date.split("-")[0]);
+                int birthYear = Integer.parseInt(date.split("-")[0]); // henter det første element fra input
                 int birthMonth = Integer.parseInt(date.split("-")[1]);
                 int birthDay = Integer.parseInt(date.split("-")[2]);
-                LocalDate birthDate = LocalDate.of(birthYear,birthMonth,birthDay);
-                int age = calculateAge(birthDate);
-                if(age < 3 || age > 122){
+                LocalDate birthDate = LocalDate.of(birthYear,birthMonth,birthDay); // hvis alt lykkes så langt laves et localDate objekt
+                int age = calculateAge(birthDate); // finder lige ud af alderen...
+                if(age < 3 || age > 122){ // hvis det er blevet tastet ind en ugyldig alder skal brugeren lige prøve igen
                     throw new InvalidBirthYearException("Alder skal være minimum 3 og maks 122.");
                 }
                 System.out.println("\nFødselsdato noteret :)) "+birthDate);
                 System.out.println();
-                again = false;
+                again = false; // hvis alt lykkes sættes again til at være false og vi kommer ud af while-loopen
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e); // fejlmeddelelse
                 System.out.print("Tastefejl. Venligst prøv igen (ÅÅÅÅ-MM-DD): ");
                 //throw new RuntimeException(e); // skal ikke bruges, den kaster os ud af input-loop
             }
@@ -147,10 +147,10 @@ public class MenuKonsol {
 
 
     }
-
+    // Metode som beregner og returnerer int alder udfra et localDate objekt
     public int calculateAge(LocalDate date){
-        LocalDate currentDate = LocalDate.now();
-        Period period = Period.between(date, currentDate);
+        LocalDate currentDate = LocalDate.now(); // henter dagens dato
+        Period period = Period.between(date, currentDate); // sammenligner de to
         return period.getYears();
     }
 
