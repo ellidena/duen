@@ -15,7 +15,7 @@ public class MenuKonsol {
 
         //loop 1:
         while (true){
-            System.out.println("   NAVIGATIONSMENY:");
+            System.out.println("   NAVIGATIONS-MENU:");
             System.out.println("""
                     +-+\s
                     |1|\s FORMAND
@@ -43,7 +43,6 @@ public class MenuKonsol {
                 int choice = input.nextInt();
                 switch (choice){
                     case 1:
-                        //fakeClearConsoleScreen(); // just 50 linebreaks for visual effect
                         //Formand
                         //evt login
                         /*
@@ -54,17 +53,18 @@ public class MenuKonsol {
                             //loop 2 in here
                         }
                          */
-                        //loop 2:
+
                         loop2();
+
                         /*
-                        //Hvis formand login:
+                        //Hvis login:
                         else {
                             System.out.println("Forkert kode");
                         }
                          */
                         break;
                     case 2:
-                        // kasserer login
+                        // evt kasserer login
                         /*
                         System.out.println("Angiv kode: ");
                         Scanner pin2 = new Scanner(System.in);
@@ -73,8 +73,9 @@ public class MenuKonsol {
                             // loop3 in here
                         }
                          */
-                        //loop 3:
+
                         loop3();
+
                         /*
                         //for kasserer login
                         else{
@@ -114,7 +115,7 @@ public class MenuKonsol {
         System.out.println(lines);
     }
 
-    // Ber brugeren at indtaste fødselsdato i formatet ÅÅÅÅ-MM-DD
+    // Metode som ber brugeren at indtaste fødselsdato i formatet ÅÅÅÅ-MM-DD
     // og konverterer det til en localDate
     public void enterBirthDate(){
         /*
@@ -147,7 +148,8 @@ public class MenuKonsol {
 
 
     }
-    // Metode som beregner og returnerer int alder udfra et localDate objekt
+
+    // Metode som beregner og returnerer int alder ud fra et localDate objekt
     public int calculateAge(LocalDate date){
         LocalDate currentDate = LocalDate.now(); // henter dagens dato
         Period period = Period.between(date, currentDate); // sammenligner de to
