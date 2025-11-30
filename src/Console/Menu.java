@@ -9,8 +9,6 @@ public class Menu {
     public Menu(){}
 
     public void startMenu(){
-        // List list = new List();
-
         //loop 1:
         while (true){
             System.out.println("   NAVIGATIONS-MENU:");
