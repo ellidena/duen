@@ -107,7 +107,7 @@ public class Menu {
                 LocalDate birthDate = convertStringDateToLocalDate(date); // prøver at lave et LocalDate objekt
                 int age = calculateAge(birthDate); // finder lige ud af alderen...
                 if(age < 6 || age > 100){ // hvis det er blevet tastet ind en ugyldig alder skal brugeren lige prøve igen
-                    throw new InvalidBirthYearException("Alder skal være minimum 3 og maks 122.");
+                    throw new InvalidBirthYearException("Alder skal være minimum 6 og maks 100.");
                 }
                 System.out.println("\nFødselsdato noteret :)) "+birthDate);
                 System.out.println();
