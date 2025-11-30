@@ -1,6 +1,7 @@
 package Konsol;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Scanner;
 
 public class MenuKonsol {
@@ -129,7 +130,11 @@ public class MenuKonsol {
                 int birthMonth = Integer.parseInt(date.split("-")[1]);
                 int birthDay = Integer.parseInt(date.split("-")[2]);
                 LocalDate birthDate = LocalDate.of(birthYear,birthMonth,birthDay);
-                System.out.println("Fødselsdato noteret :)) "+birthDate);
+                int age = calculateAge(birthDate);
+                if(age < 3 || age > 122){
+                    throw new InvalidBirthYearException("Alder skal være minimum 3 og maks 122.");
+                }
+                System.out.println("\nFødselsdato noteret :)) "+birthDate);
                 System.out.println();
                 again = false;
             } catch (Exception e) {
@@ -141,6 +146,12 @@ public class MenuKonsol {
 
 
 
+    }
+
+    public int calculateAge(LocalDate date){
+        LocalDate currentDate = LocalDate.now();
+        Period period = Period.between(date, currentDate);
+        return period.getYears();
     }
 
     public void loop2(){
