@@ -68,6 +68,8 @@ public class MenuKonsol {
                         break;
                     case 4:
                         // exit
+                        input.close();
+                        System.exit(0);
                         break;
 
                     default:
@@ -91,7 +93,7 @@ public class MenuKonsol {
 
     public void loop2(){
         while (true){
-            System.out.println("Formand");
+            System.out.println("Formand: ");
             System.out.println("1. Se Medlemsliste");
             System.out.println("2. Opret Medlem");
             System.out.println("3. Redigere Medlem");
@@ -100,10 +102,9 @@ public class MenuKonsol {
             System.out.println("6. Tilbage");
             System.out.println("Afslut");
             // kan man gå tilbage?
-
             try {
-                Scanner formandMain = new Scanner(System.in); // why the new scanner?
-                int formandChoice = formandMain.nextInt();
+                Scanner inputFormand = new Scanner(System.in); // why the new scanner?
+                int formandChoice = inputFormand.nextInt();
                 switch (formandChoice){
                     case 1:
                         // se medlemsliste
@@ -131,7 +132,8 @@ public class MenuKonsol {
                         break;
                     case 7:
                         // afslut
-                        // break loop2;
+                        inputFormand.close();
+                        System.exit(0);
                         break;
                     default:
                         System.out.println("fejl");
@@ -146,14 +148,14 @@ public class MenuKonsol {
 
     public void loop3(){
         while (true){
-            System.out.println("Kasserer");
+            System.out.println("Kasserer:");
             System.out.println("1. Se restance");
             System.out.println("2. Se forventet kontingentindtægt");
             System.out.println("3. Tilbage");
             System.out.println("4. Afslut");
             try {
-                Scanner formandMain = new Scanner(System.in); // whyy the new scanner
-                int formandChoice = formandMain.nextInt();
+                Scanner inputKasserer = new Scanner(System.in); // whyy the new scanner
+                int formandChoice = inputKasserer.nextInt();
                 switch (formandChoice){
                     case 1:
                         break;
@@ -168,6 +170,8 @@ public class MenuKonsol {
                         break;
                     case 4:
                         // exit
+                        inputKasserer.close();
+                        System.exit(0);
                         break;
                     default:
                         break;

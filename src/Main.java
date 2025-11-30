@@ -21,7 +21,7 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-
+        /*
         while (true) {
             System.out.println("  |~~~~~~~~~~~~~");
             System.out.println("  | KlubSystem:");
@@ -43,6 +43,6 @@ public class Main {
                 default:
                     break;
             }
-        }
+        }*/
     }
 }
