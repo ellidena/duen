@@ -24,6 +24,7 @@ public class MenuKonsol {
                 int choice = input.nextInt();
                 switch (choice){
                     case 1:
+                        //fakeClearConsoleScreen(); // just 50 linebreaks for visual effect
                         //Formand
                         //evt login
                         /*
@@ -87,6 +88,13 @@ public class MenuKonsol {
 
     }
 
+    public void fakeClearConsoleScreen(){
+        // just 50 linebreaks for visual effect
+        int lineCount = 50;
+        String lines = "\n".repeat(lineCount);
+        System.out.println(lines);
+    }
+
     public void loop1(){
 
     }
@@ -128,6 +136,7 @@ public class MenuKonsol {
                         break;
                     case 6:
                         // tilbage
+                        //fakeClearConsoleScreen(); // just 50 linebreaks for visual effect
                         startMenuKonsol();
                         break;
                     case 7:
@@ -166,6 +175,7 @@ public class MenuKonsol {
                         //memberList.printExpecterRevenue();
                         break;
                     case 3:
+                        //fakeClearConsoleScreen(); // just 50 linebreaks for visual effect
                         startMenuKonsol();
                         break;
                     case 4:
