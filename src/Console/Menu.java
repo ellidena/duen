@@ -218,14 +218,13 @@ public class Menu {
                 switch (formandChoice){
                     case 1:
                         break;
-                    //se restance, f.eks:
-                    //memberList.printRestance();
+                        //se restance, f.eks:
+                        //memberList.printRestance();
                     case 2:
                         // se forventet indtægt, f.eks
                         //memberList.printExpecterRevenue();
                         break;
                     case 3:
-                        //fakeClearConsoleScreen(); // just 50 linebreaks for visual effect
                         startMenu();
                         break;
                     case 4:
