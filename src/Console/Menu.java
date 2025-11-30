@@ -6,9 +6,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public Menu(){
-
-    }
+    public Menu(){}
 
     public void startMenu(){
         // List list = new List();
