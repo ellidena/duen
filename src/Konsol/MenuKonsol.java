@@ -13,11 +13,27 @@ public class MenuKonsol {
 
         //loop 1:
         while (true){
-            System.out.println("Navigationsmeny:");
-            System.out.println("1. Formand");
-            System.out.println("2. Kasserer");
-            System.out.println("3. Træner");
-            System.out.println("4. Afslut");
+            System.out.println("   NAVIGATIONSMENY:");
+            System.out.println("""
+                    +-+\s
+                    |1|\s FORMAND
+                    +-+\s
+                    """);
+            System.out.println("""
+                    +-+\s
+                    |2|\s KASSERER
+                    +-+\s
+                    """);
+            System.out.println("""
+                    +-+\s
+                    |3|\s TRÆNER
+                    +-+\s
+                    """);
+            System.out.println("""
+                    +-+\s
+                    |4|\s AFSLUT
+                    +-+\s
+                    """);
 
             try{
                 Scanner input = new Scanner(System.in);
@@ -85,7 +101,7 @@ public class MenuKonsol {
     }
 
     public void login(){
-
+        // add a little login input + if else thing here
     }
 
     public void fakeClearConsoleScreen(){
@@ -101,14 +117,26 @@ public class MenuKonsol {
 
     public void loop2(){
         while (true){
-            System.out.println("Formand: ");
+            System.out.println("   FORMAND:");
             System.out.println("1. Se Medlemsliste");
-            System.out.println("2. Opret Medlem");
+            System.out.println("""
+                    ╔═══════════════╗
+                    ║1. OPRET MEDLEM║
+                    ╚═══════════════╝
+                    """);
             System.out.println("3. Redigere Medlem");
             System.out.println("4. Slet Medlem");
             System.out.println("5. Find medlem");
-            System.out.println("6. Tilbage");
-            System.out.println("Afslut");
+            System.out.println("""
+                    ╔═══════════════╗
+                    ║6. TILBAGE     ║
+                    ╚═══════════════╝
+                    """);
+            System.out.println("""
+                    ╔═══════════════╗
+                    ║7. AFSLUT      ║
+                    ╚═══════════════╝
+                    """);
             // kan man gå tilbage?
             try {
                 Scanner inputFormand = new Scanner(System.in); // why the new scanner?
@@ -191,6 +219,21 @@ public class MenuKonsol {
                 System.out.println(i);
             }
         }
+    }
+
+    public void birdAsciiImage(){
+        System.out.println("""
+                      .---.        .-----------
+                     /     \\  __  /    ------
+                    / /     \\(  )/    -----
+                   //////   ' \\/ `   ---
+                  //// / // :    : ---
+                 // /   /  /`    '--
+                //          //..\\\\
+                       ====UU====UU====
+                           '//||\\\\`
+                             ''``
+                """);
     }
 
 

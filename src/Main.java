@@ -17,6 +17,7 @@ public class Main {
 
         try {
             //menuKonsol.fakeClearConsoleScreen(); Literally just 50 linebreaks lol
+            menuKonsol.birdAsciiImage();
             menuKonsol.startMenuKonsol();
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
