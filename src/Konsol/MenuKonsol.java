@@ -35,56 +35,7 @@ public class MenuKonsol {
                         }
                          */
                         //loop 2:
-                        while (true){
-                            System.out.println("Formand");
-                            System.out.println("1. Se Medlemsliste");
-                            System.out.println("2. Opret Medlem");
-                            System.out.println("3. Redigere Medlem");
-                            System.out.println("4. Slet Medlem");
-                            System.out.println("5. Find medlem");
-                            System.out.println("Afslut");
-                            // kan man gå tilbage?
-
-                            try {
-                                Scanner formandMain = new Scanner(System.in); // why the new scanner?
-                                int formandChoice = formandMain.nextInt();
-                                switch (formandChoice){
-                                    case 1:
-                                        // se medlemsliste
-                                        // f.eks memberList.printMembers();
-                                        break;
-                                    case 2:
-                                        // opret medlem, f.eks
-                                        // memberList.createMember();
-                                        break;
-                                    case 3:
-                                        // rediger medlem, f.eks:
-                                        // memberList.editMember();
-                                        break;
-                                    case 4:
-                                        // slet medlem, f.eks:
-                                        // memberList.deleteMember();
-                                        break;
-                                    case 5:
-                                        // se kontingent, f.eks:
-                                        // memberList.viewAnnualFee();
-                                        break;
-                                    case 6:
-                                        // Afslut
-                                        break;
-                                    case 7:
-                                        // Tilbage f.eks
-                                        // break loop2;
-                                        break;
-                                    default:
-                                        System.out.println("fejl");
-                                        break;
-                                }
-                            }
-                            catch (Exception i){
-                                System.out.println(i);
-                            }
-                        }
+                        loop2();
                         /*
                         //Hvis formand login:
                         else {
@@ -151,9 +102,70 @@ public class MenuKonsol {
                 System.out.println(i);
             }
         }
+    }
 
+    public void login(){
 
     }
+
+    public void loop1(){
+
+    }
+
+    public void loop2(){
+        while (true){
+            System.out.println("Formand");
+            System.out.println("1. Se Medlemsliste");
+            System.out.println("2. Opret Medlem");
+            System.out.println("3. Redigere Medlem");
+            System.out.println("4. Slet Medlem");
+            System.out.println("5. Find medlem");
+            System.out.println("Afslut");
+            // kan man gå tilbage?
+
+            try {
+                Scanner formandMain = new Scanner(System.in); // why the new scanner?
+                int formandChoice = formandMain.nextInt();
+                switch (formandChoice){
+                    case 1:
+                        // se medlemsliste
+                        // f.eks memberList.printMembers();
+                        break;
+                    case 2:
+                        // opret medlem, f.eks
+                        // memberList.createMember();
+                        break;
+                    case 3:
+                        // rediger medlem, f.eks:
+                        // memberList.editMember();
+                        break;
+                    case 4:
+                        // slet medlem, f.eks:
+                        // memberList.deleteMember();
+                        break;
+                    case 5:
+                        // se kontingent, f.eks:
+                        // memberList.viewAnnualFee();
+                        break;
+                    case 6:
+                        // Afslut
+                        break;
+                    case 7:
+                        // Tilbage f.eks
+                        // break loop2;
+                        break;
+                    default:
+                        System.out.println("fejl");
+                        break;
+                }
+            }
+            catch (Exception i){
+                System.out.println(i);
+            }
+        }
+    }
+
+
 
 
 
