@@ -42,6 +42,7 @@ public class MenuKonsol {
                             System.out.println("Forkert kode");
                         }
                          */
+                        break;
                     case 2:
                         // kasserer login
                         /*
@@ -60,6 +61,7 @@ public class MenuKonsol {
                             System.out.println("Forkert kode");
                         }
                         */
+                        break;
                     case 3:
                         // Træner login
                         // loop 4:
