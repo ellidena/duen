@@ -86,7 +86,7 @@ public class Menu {
     }
 
     public void fakeClearConsoleScreen(){
-        // just 50 linebreaks for visual effect
+        // just 50 linebreaks for visual effect lol
         int lineCount = 50;
         String lines = "\n".repeat(lineCount);
         System.out.println(lines);
@@ -106,7 +106,7 @@ public class Menu {
                 String date = reader.nextLine();
                 LocalDate birthDate = convertStringDateToLocalDate(date); // prøver at lave et LocalDate objekt
                 int age = calculateAge(birthDate); // finder lige ud af alderen...
-                if(age < 3 || age > 122){ // hvis det er blevet tastet ind en ugyldig alder skal brugeren lige prøve igen
+                if(age < 6 || age > 100){ // hvis det er blevet tastet ind en ugyldig alder skal brugeren lige prøve igen
                     throw new InvalidBirthYearException("Alder skal være minimum 3 og maks 122.");
                 }
                 System.out.println("\nFødselsdato noteret :)) "+birthDate);
