@@ -41,46 +41,14 @@ public class Menu {
                     case 1:
                         //Formand
                         //evt login
-                        /*
-                        System.out.println("Angiv kode: ");
-                        Scanner pin = new Scanner(System.in); // why the new scanner object??
-                        String code = pin.next();
-                        if(code.equals("1234")){
-                            //loop 2 in here
-                        }
-                         */
-
                         loop2();
-
-                        /*
-                        //Hvis login:
-                        else {
-                            System.out.println("Forkert kode");
-                        }
-                         */
                         break;
                     case 2:
                         // evt kasserer login
-                        /*
-                        System.out.println("Angiv kode: ");
-                        Scanner pin2 = new Scanner(System.in);
-                        String code2 = pin2.next();
-                        if (code2.equals("1234"));{
-                            // loop3 in here
-                        }
-                         */
-
                         loop3();
-
-                        /*
-                        //for kasserer login
-                        else{
-                            System.out.println("Forkert kode");
-                        }
-                        */
                         break;
                     case 3:
-                        // Træner login
+                        // evt Træner login
                         // loop 4:
                         break;
                     case 4:
@@ -102,6 +70,20 @@ public class Menu {
 
     public void login(){
         // add a little login input + if else thing here
+        /*
+                        System.out.println("Angiv kode: ");
+                        Scanner pin = new Scanner(System.in); // why the new scanner object??
+                        String code = pin.next();
+                        if(code.equals("1234")){
+                            //loop 2 in here
+                        }
+                         */
+        /*
+                        //for kasserer login
+                        else{
+                            System.out.println("Forkert kode");
+                        }
+                        */
     }
 
     public void fakeClearConsoleScreen(){
