@@ -52,34 +52,8 @@ public class MenuKonsol {
                             // loop3 in here
                         }
                          */
-                        while (true){
-                            System.out.println("Kasserer");
-                            System.out.println("1. Se restance");
-                            System.out.println("2. Se forventet kontingentindtægt");
-                            System.out.println("3. Afslut");
-                            try {
-                                Scanner formandMain = new Scanner(System.in); // whyy the new scanner
-                                int formandChoice = formandMain.nextInt();
-                                switch (formandChoice){
-                                    case 1:
-                                        break;
-                                        //se restance, f.eks:
-                                        //memberList.printRestance();
-                                    case 2:
-                                        // se forventet indtægt, f.eks
-                                        //memberList.printExpecterRevenue();
-                                        break;
-                                    case 3:
-                                        // exit
-                                        break;
-                                    default:
-                                        break;
-                                }
-                            }
-                            catch (Exception i){
-                                System.out.println(i);
-                            }
-                        }
+                        //loop 3:
+                        loop3();
                         /*
                         //for kasserer login
                         else{
@@ -88,6 +62,7 @@ public class MenuKonsol {
                         */
                     case 3:
                         // Træner login
+                        // loop 4:
                         break;
                     case 4:
                         // exit
@@ -156,6 +131,37 @@ public class MenuKonsol {
                         break;
                     default:
                         System.out.println("fejl");
+                        break;
+                }
+            }
+            catch (Exception i){
+                System.out.println(i);
+            }
+        }
+    }
+
+    public void loop3(){
+        while (true){
+            System.out.println("Kasserer");
+            System.out.println("1. Se restance");
+            System.out.println("2. Se forventet kontingentindtægt");
+            System.out.println("3. Afslut");
+            try {
+                Scanner formandMain = new Scanner(System.in); // whyy the new scanner
+                int formandChoice = formandMain.nextInt();
+                switch (formandChoice){
+                    case 1:
+                        break;
+                    //se restance, f.eks:
+                    //memberList.printRestance();
+                    case 2:
+                        // se forventet indtægt, f.eks
+                        //memberList.printExpecterRevenue();
+                        break;
+                    case 3:
+                        // exit
+                        break;
+                    default:
                         break;
                 }
             }
