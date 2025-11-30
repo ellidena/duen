@@ -181,7 +181,7 @@ public class Menu {
                     ╚═══════════════╝
                     """);
             try {
-                Scanner inputFormand = new Scanner(System.in); // why the new scanner?
+                Scanner inputFormand = new Scanner(System.in); // den tidligere oprettede Scanner input virker ej her, så opretter en ny
                 System.out.print(": ");
                 int formandChoice = inputFormand.nextInt();
                 switch (formandChoice){
