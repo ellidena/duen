@@ -127,10 +127,7 @@ public class MenuKonsol {
         while (again){ // så længe again er true gentages dette
             try {
                 String date = reader.nextLine();
-                int birthYear = Integer.parseInt(date.split("-")[0]); // henter det første element fra input
-                int birthMonth = Integer.parseInt(date.split("-")[1]);
-                int birthDay = Integer.parseInt(date.split("-")[2]);
-                LocalDate birthDate = LocalDate.of(birthYear,birthMonth,birthDay); // hvis alt lykkes så langt laves et localDate objekt
+                LocalDate birthDate = convertStringDateToLocalDate(date); // prøver at lave et LocalDate objekt
                 int age = calculateAge(birthDate); // finder lige ud af alderen...
                 if(age < 3 || age > 122){ // hvis det er blevet tastet ind en ugyldig alder skal brugeren lige prøve igen
                     throw new InvalidBirthYearException("Alder skal være minimum 3 og maks 122.");
@@ -144,9 +141,14 @@ public class MenuKonsol {
                 //throw new RuntimeException(e); // skal ikke bruges, den kaster os ud af input-loop
             }
         }
+    }
 
-
-
+    // Metode som tager String i formatet YYYY-MM-DD og konverterer til LocalDate
+    public LocalDate convertStringDateToLocalDate(String date){
+        int birthYear = Integer.parseInt(date.split("-")[0]); // henter det første element fra input
+        int birthMonth = Integer.parseInt(date.split("-")[1]);
+        int birthDay = Integer.parseInt(date.split("-")[2]);
+        return LocalDate.of(birthYear,birthMonth,birthDay);
     }
 
     // Metode som beregner og returnerer int alder ud fra et localDate objekt
