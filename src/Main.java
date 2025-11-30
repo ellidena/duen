@@ -11,11 +11,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         MemberRegistry memberRegistry = new MemberRegistry();
+        MenuKonsol menuKonsol = new MenuKonsol();
 
         memberRegistry.addMember(new Member("George", LocalDate.of(1985,02,4), false,false));
 
         try {
-            MenuKonsol.startmenu();
+            menuKonsol.StartMenuKonsol();
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
