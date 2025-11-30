@@ -1,16 +1,16 @@
-package Konsol;
+package Console;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
-public class MenuKonsol {
+public class Menu {
 
-    public MenuKonsol(){
+    public Menu(){
 
     }
 
-    public void startMenuKonsol(){
+    public void startMenu(){
         // List list = new List();
 
         //loop 1:
@@ -209,7 +209,7 @@ public class MenuKonsol {
                     case 6:
                         // tilbage
                         //fakeClearConsoleScreen(); // just 50 linebreaks for visual effect
-                        startMenuKonsol();
+                        startMenu();
                         break;
                     case 7:
                         // afslut
@@ -248,7 +248,7 @@ public class MenuKonsol {
                         break;
                     case 3:
                         //fakeClearConsoleScreen(); // just 50 linebreaks for visual effect
-                        startMenuKonsol();
+                        startMenu();
                         break;
                     case 4:
                         // exit

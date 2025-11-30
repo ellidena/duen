@@ -1,4 +1,4 @@
-import Konsol.MenuKonsol;
+import Console.Menu;
 import member.Member;
 import member.MemberRegistry;
 
@@ -11,14 +11,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         MemberRegistry memberRegistry = new MemberRegistry();
-        MenuKonsol menuKonsol = new MenuKonsol();
+        Menu menu = new Menu();
 
         memberRegistry.addMember(new Member("George", LocalDate.of(1985,02,4), false,false));
 
         try {
             //menuKonsol.fakeClearConsoleScreen(); Literally just 50 linebreaks lol
-            menuKonsol.birdAsciiImage();
-            menuKonsol.startMenuKonsol();
+            menu.birdAsciiImage();
+            menu.startMenu();
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
