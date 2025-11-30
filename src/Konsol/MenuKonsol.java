@@ -91,7 +91,6 @@ public class MenuKonsol {
                             System.out.println("Forkert kode");
                         }
                          */
-                        break;
                     case 2:
                         // kasserer login
                         /*
