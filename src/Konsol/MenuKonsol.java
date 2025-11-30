@@ -1,5 +1,6 @@
 package Konsol;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class MenuKonsol {
@@ -37,6 +38,7 @@ public class MenuKonsol {
 
             try{
                 Scanner input = new Scanner(System.in);
+                System.out.print(": ");
                 int choice = input.nextInt();
                 switch (choice){
                     case 1:
@@ -111,7 +113,33 @@ public class MenuKonsol {
         System.out.println(lines);
     }
 
-    public void loop1(){
+    public void enterBirthDate(){
+        /*
+        HEJ!! HER KAN MAN LAVE EN CUSTOM EXCEPTION
+        HVIS BRUGEREN TASTER EN UGYLDIG FØDSELSDATO IND,
+        F.EKS AT PERSONEN ER FOR UNG, ELLER OVER 120 ÅR
+         */
+        boolean again = true;
+        Scanner reader = new Scanner(System.in);
+        System.out.print("FØDSELSDATO (ÅÅÅÅ-MM-DD): ");
+        while (again){
+            try {
+                String date = reader.nextLine();
+                int birthYear = Integer.parseInt(date.split("-")[0]);
+                int birthMonth = Integer.parseInt(date.split("-")[1]);
+                int birthDay = Integer.parseInt(date.split("-")[2]);
+                LocalDate birthDate = LocalDate.of(birthYear,birthMonth,birthDay);
+                System.out.println("Fødselsdato noteret :)) "+birthDate);
+                System.out.println();
+                again = false;
+            } catch (Exception e) {
+                System.out.println(e);
+                System.out.print("Tastefejl. Venligst prøv igen (ÅÅÅÅ-MM-DD): ");
+                //throw new RuntimeException(e); // skal ikke bruges, den kaster os ud af input-loop
+            }
+        }
+
+
 
     }
 
@@ -121,7 +149,7 @@ public class MenuKonsol {
             System.out.println("1. Se Medlemsliste");
             System.out.println("""
                     ╔═══════════════╗
-                    ║1. OPRET MEDLEM║
+                    ║2. OPRET MEDLEM║
                     ╚═══════════════╝
                     """);
             System.out.println("3. Redigere Medlem");
@@ -137,9 +165,9 @@ public class MenuKonsol {
                     ║7. AFSLUT      ║
                     ╚═══════════════╝
                     """);
-            // kan man gå tilbage?
             try {
                 Scanner inputFormand = new Scanner(System.in); // why the new scanner?
+                System.out.print(": ");
                 int formandChoice = inputFormand.nextInt();
                 switch (formandChoice){
                     case 1:
@@ -149,6 +177,7 @@ public class MenuKonsol {
                     case 2:
                         // opret medlem, f.eks
                         // memberList.createMember();
+                        enterBirthDate();
                         break;
                     case 3:
                         // rediger medlem, f.eks:
