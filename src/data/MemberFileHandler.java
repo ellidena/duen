@@ -74,6 +74,7 @@ public class MemberFileHandler {
 
                 writer.println(memberString);
             }
+            writer.close();
         }
         catch (FileNotFoundException e){
             System.out.println("Filen blev ikke fundet");
