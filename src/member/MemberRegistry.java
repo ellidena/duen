@@ -2,6 +2,7 @@ package member;
 
 import java.util.ArrayList;
 public class MemberRegistry {
+    /*
     ArrayList<Member> members = new ArrayList<>();
 
     public void addMember(Member member){
@@ -16,5 +17,5 @@ public class MemberRegistry {
             s += m + "\n";
         }
         return s;
-    }
+    }*/
 }

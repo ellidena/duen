@@ -1,10 +1,13 @@
 package Console;
 
+import util.InvalidBirthYearException;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
 public class Menu {
+    private Scanner input = new Scanner(System.in); // kan man bare bruge denne her i stedet for at oprette alle mulige steder i metoder
 
     public Menu(){}
 
@@ -118,7 +121,7 @@ public class Menu {
                 //throw new RuntimeException(e); // skal ikke bruges, den kaster os ud af input-loop
             }
         }
-    }
+    } //tjek om custom exception stadig virker
 
     // Metode som tager String i formatet YYYY-MM-DD og konverterer til LocalDate
     public LocalDate convertStringDateToLocalDate(String date){
@@ -239,6 +242,45 @@ public class Menu {
                 System.out.println(i);
             }
         }
+    }
+
+    private void createMember(){
+        boolean isActive;
+        boolean isCompetitiveSwimmer;
+        //Evt senere be brugeren at indtaste fulde navn og senere parse det til fornavn og efternavn.
+        System.out.println("Indtast fornavn\n : ");
+        String firstName = input.nextLine();
+        System.out.println("Indtast efternavn\n : ");
+        String lastName = input.nextLine();
+        enterBirthDate(); // brug dette til noget
+        System.out.println("Aktivere medlemskab? j/n\n : ");
+        String activePassiveStatus = input.nextLine();
+        if(activePassiveStatus.equals("j")){
+            //sæt isActive til at være true
+            isActive = true;
+        }
+        else {
+            isActive = false;
+        }
+        System.out.println("Konkurrencesvømmer? j/n\n : ");
+        String isCompetitiveReply = input.nextLine();
+        if(isCompetitiveReply.equals("j")){
+            isCompetitiveSwimmer = true;
+        }
+        else{
+            isCompetitiveSwimmer = false;
+        }
+        System.out.println("Har medlem betalt? j/n\n : ");
+        boolean hasPaid;
+        String hasPaidReply = input.nextLine();
+        if(hasPaidReply.equals("j")){
+            hasPaid = true;
+        }
+        else {
+            hasPaid = false;
+        }
+        //Opret et nyt Member objekt her med de data som samlets ind
+
     }
 
     public void birdAsciiImage(){
