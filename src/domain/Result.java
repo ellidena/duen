@@ -5,9 +5,9 @@ import java.time.LocalDate;
 public class Result {
     // classes representing the real world
     private final Discipline discipline;
-    private final double time;
+    private final double time; // time obbjekt???
     private final LocalDate date;
-
+    //Member member;
     public Result(Discipline discipline, double time, LocalDate date){
         this.discipline = discipline;
         this.time = time;

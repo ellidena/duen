@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 public class InputHelper {
     // printing menus and taking input

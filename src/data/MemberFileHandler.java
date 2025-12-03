@@ -83,6 +83,9 @@ public class MemberFileHandler {
             System.out.println("Der upstod en fejl under skrivning til filen");
             e.printStackTrace();
         }
+        finally {
+
+        }
     }
 
     public void writeToFile(Member member){
