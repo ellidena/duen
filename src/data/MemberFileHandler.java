@@ -4,6 +4,7 @@ import domain.Member;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,46 +12,52 @@ public class MemberFileHandler {
     // loading/saving
     // Responsibilities:
     // save all members to file, load all members from file,
-    // start with simple csv file like name;age;active;competitive;disciplines;fee;debt
-    // TODO: save all members to one text file and load again on startup
     private String fileName;
 
     public MemberFileHandler(String fileName){
+        //Navnet på filen vi vil oprette til at gemme medlemmer i
         this.fileName = fileName;
     }
 
-    // Method that takes the file we store members in, and loads them into an ArrayList<Member>
+    // Metode som giver os en liste af alle members som indtil videre er gemt i filen med members
     public ArrayList<Member> loadedMembers(){
         ArrayList<Member> loadedMembers = new ArrayList<>();
         try {
+            // Åbner filen vi har members i
             File file = new File(fileName);
             Scanner scanner = new Scanner(file);
+            // så længe som det er noget tekst (hasNextLine) så looper denne while-loop:
             while (scanner.hasNextLine()){
+                //Henter indholdet i linjen (dvs: fornavn, efternavn, 1979-03-13. . . . etc)
                 String line = scanner.nextLine();
-                // add a  if line.isEmpty() continue here?
+                // splitter indholdet, og lægger det i en liste
                 String[] memberData = line.split(",");
-
-                if(memberData.length == 6){ //regular member
-                    // Regular member constructor: Member(String firstName, String surName, LocalDate birthDate, boolean isCompetitive, boolean isActive, boolean isPaid)
+                // listen skulle gerne være 7 stk elementer lang
+                if(memberData.length == 7){
+                    // Member(String firstName, String surName, String PhoneNr, LocalDate birthDate, boolean isCompetitive, boolean isActive, boolean isPaid)
                     String firstName = memberData[0];
                     String surName = memberData[1];
-                    String dateOfBirthString = memberData[2];
-                    LocalDate birthDate = convertStringDateToLocalDate(dateOfBirthString);
-                    Boolean isCompetitive = Boolean.parseBoolean(memberData[3]);
-                    Boolean isActive = Boolean.parseBoolean(memberData[4]);
-                    Boolean isPaid = Boolean.parseBoolean(memberData[5]);
+                    String phoneNumber = memberData[2];
+                    String dateOfBirthString = memberData[3];
 
-                    //TODO: create member from above data
-                    Member member = new Member(firstName, surName, birthDate, isCompetitive, isActive, isPaid);
-                    //TODO: add member into this method's output array
+                    LocalDate birthDate = convertStringDateToLocalDate(dateOfBirthString);
+                    Boolean isCompetitive = Boolean.parseBoolean(memberData[4]);
+                    Boolean isActive = Boolean.parseBoolean(memberData[5]);
+                    Boolean isPaid = Boolean.parseBoolean(memberData[6]);
+
+                    // Opretter så et Member objekt
+                    Member member = new Member(firstName, surName, phoneNumber, birthDate, isCompetitive, isActive, isPaid);
+                    // Tilføjer den samme member i ArrayListen
                     loadedMembers.add(member);
+
                 }
 
             }
 
         }
         catch (FileNotFoundException e){
-            System.out.println("Filen blev ikke fundet");
+            System.out.println("Filen blev ikke fundet, opretter en ny fil.");
+            return new ArrayList<>();
         }
         catch (IOException e){
             System.out.println("Der opstod en fejl.");
@@ -60,13 +67,15 @@ public class MemberFileHandler {
         return loadedMembers;
     }
 
+    // Metode som får en ArrayList med aktuelle members og skriver dem ind i en fil
     public void saveListOfMembersToFile(ArrayList<Member> members){
         try {
             PrintWriter writer = new PrintWriter(new FileWriter(fileName));
             for (Member member : members){
-                String memberString = String.format("%s,%s,%s,%b,%b,%b",
+                String memberString = String.format("%s,%s,%s,%s,%b,%b,%b",
                         member.getFirstName(),
                         member.getSurName(),
+                        member.getPhoneNr(),
                         member.getBirthDate(),
                         member.getIsCompetitive(),
                         member.getIsActive(),
@@ -88,30 +97,8 @@ public class MemberFileHandler {
         }
     }
 
-    public void writeToFile(Member member){
-        String pathname = ""; // ?
-        // member constructor: Member(String firstName, String surName, LocalDate birthDate, boolean isCompetitive, boolean isActive, boolean isPaid)
-        String memberString = String.format("%s,%s,%s,%b,%b,%b",
-                member.getFirstName(),
-                member.getSurName(),
-                member.getBirthDate(),
-                member.getIsCompetitive(),
-                member.getIsActive(),
-                member.getIsPaid());
-        try {
-            PrintWriter writer = new PrintWriter(new FileWriter("TuesDayTest.txt"));
-            writer.println(memberString);
-            writer.close();
-        }
-        catch (FileNotFoundException e){
-            System.out.println("Filen blev ikke fundet");
-        }
-        catch (IOException e){
-            System.out.println("Der upstod en fejl under skrivning til filen");
-            e.printStackTrace();
-        }
-    }
-
+    // metode som får et String og laver det om til et LocalDate
+    //TODO: skal den her bruges? er den ikke også lavet et andet sted i programmet??? tjek op
     private LocalDate convertStringDateToLocalDate(String date){
         int birthYear = Integer.parseInt(date.split("-")[0]);
         int birthMonth = Integer.parseInt(date.split("-")[1]);
@@ -119,3 +106,5 @@ public class MemberFileHandler {
         return LocalDate.of(birthYear, birthMonth, birthDay);
     }
 }
+
+

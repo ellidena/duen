@@ -3,9 +3,9 @@ package domain;
 import java.time.LocalDate;
 
 public class CompetitionResult extends Result{
-    // classes representing the real world
     private final String eventName;
     private final int placement;
+
     public CompetitionResult(Discipline discipline, double time, LocalDate date, String eventName, int placement) {
         super(discipline, time, date);
         this.eventName = eventName;

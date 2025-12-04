@@ -2,12 +2,15 @@ package domain;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class Member {
+    private final String phoneNr;
     // classes representing the real world
     private String firstName;
     private String surName;
     private String fullName;
+    private String PhoneNr;
     private final LocalDate birthDate;
     private int age;
     private boolean isActive;
@@ -15,16 +18,18 @@ public class Member {
     private boolean isPaid;
     private boolean isCompetitive;
     private double yearlyFee;
-    private final int memberID;
-    private static int nextID = 1;
+    //private final int memberID;
+    //private static int nextID = 1;
     //private final LocalDate joinDate = LocalDate.now();
 
-    public Member(String firstName, String surName, LocalDate birthDate, boolean isCompetitive, boolean isActive, boolean isPaid){
+
+    public Member(String firstName, String surName, String phoneNr, LocalDate birthDate, boolean isCompetitive, boolean isActive, boolean isPaid){
         this.firstName = firstName;
         this.surName = surName;
         this.fullName = firstName + " " + surName;
+        this.phoneNr = phoneNr;
         this.birthDate = birthDate;
-        this.memberID = nextID++;
+        //this.memberID = nextID++;
         this.isActive = isActive;
         this.isCompetitive = isCompetitive;
         this.isPaid = isPaid;
@@ -71,6 +76,15 @@ public class Member {
         return this.isPaid;
     }
 
+    public double getYearlyFee(){
+        return this.yearlyFee;
+    }
+
+
+    public String getPhoneNr(){
+        return this.PhoneNr;
+    }
+
     //TODO: check if this actually changes yearlyFee correctly if used
     public void setIsActive(boolean isActive){
         this.isActive = isActive;
@@ -112,4 +126,10 @@ public class Member {
         }
     }
 
+    @Override
+    public String toString(){
+        return fullName + " (" + birthDate + ") " + "- Aktiv: " + isActive + ", Konkurrencesvømmer: " + isCompetitive;
+    }
+
 }
+
