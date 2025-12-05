@@ -76,4 +76,16 @@ public class Database {
         findByPhoneNr(phoneNr).setIsPaid(true);
     }
 
+    // Delete member, not tested!!
+    public boolean deleteMember(String phoneNr) {
+        Member m = findByPhoneNr(phoneNr);
+        if (m != null) {
+            memberList.remove(m);
+            memberFileHandler.saveListOfMembersToFile(memberList);
+            return true;
+        }
+        return false;
+    }
+
+
 }
