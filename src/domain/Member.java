@@ -10,13 +10,11 @@ public class Member {
     private String firstName;
     private String surName;
     private String fullName;
-    private String PhoneNr;
     private final LocalDate birthDate;
-    private int age;
     private boolean isActive;
     private boolean isJunior; //instead of String ageGroup
     private boolean isPaid;
-    private boolean isCompetitive;
+    private boolean isCompetitive; // TODO SKAL DETTE BRUGES? KAN DET FJERNES?
     private double yearlyFee;
     //private final int memberID;
     //private static int nextID = 1;
@@ -26,7 +24,7 @@ public class Member {
     public Member(String firstName, String surName, String phoneNr, LocalDate birthDate, boolean isCompetitive, boolean isActive, boolean isPaid){
         this.firstName = firstName;
         this.surName = surName;
-        this.fullName = firstName + " " + surName;
+        this.fullName = firstName + " " + surName; // TODO metode, noget :))
         this.phoneNr = phoneNr;
         this.birthDate = birthDate;
         //this.memberID = nextID++;
@@ -34,7 +32,6 @@ public class Member {
         this.isCompetitive = isCompetitive;
         this.isPaid = isPaid;
 
-        this.age = calculateAge();
         setAgeGroup();
         setYearlyFee();
 
@@ -57,7 +54,7 @@ public class Member {
     }
 
     public int getAge(){
-        return this.age;
+        return calculateAge();
     }
 
     public boolean getIsActive(){
@@ -82,13 +79,13 @@ public class Member {
 
 
     public String getPhoneNr(){
-        return this.PhoneNr;
+        return this.phoneNr;
     }
 
     //TODO: check if this actually changes yearlyFee correctly if used
     public void setIsActive(boolean isActive){
         this.isActive = isActive;
-        setYearlyFee();
+        setYearlyFee(); // TODO KAN DENNE FJERNES ????
     }
 
     public void setIsCompetitive(boolean isCompetitive){
@@ -106,7 +103,7 @@ public class Member {
     }
 
     public void setAgeGroup(){
-        if(age >= 18){
+        if(getAge() >= 18){
             isJunior = false;
         }
         else {

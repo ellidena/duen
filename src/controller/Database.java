@@ -30,21 +30,19 @@ public class Database {
         }
     }
 
+
+    // Metode der henter listen af members
+    public ArrayList<Member> getAllMembers(){
+        return memberList;
+    }
+
+    // Metode der opdaterer ALLE medlemmers yearlyFee, så det er korrekt
     public void updateYearlyFee() {
         for (Member member : memberList) {
             member.setYearlyFee();
         }
     }
 
-    public ArrayList<Member> getAllMembers(){
-        return memberList;
-    }
-
-
-
-    //TODO Overvej hvor disse Metoder skal ligge???
-
-    //Retunere den forventede indkomst for Året
     public double getTotalExpectedFees(){
         double sum = 0;
         for (Member m : memberList){
@@ -72,20 +70,14 @@ public class Database {
         return null;
     }
 
-    public void setMemberPaid(String phoneNr){
-        findByPhoneNr(phoneNr).setIsPaid(true);
-    }
-
-    // Delete member, not tested!!
-    public boolean deleteMember(String phoneNr) {
+    public boolean setMemberPaid(String phoneNr){
         Member m = findByPhoneNr(phoneNr);
         if (m != null) {
-            memberList.remove(m);
+            m.setIsPaid(true);
             memberFileHandler.saveListOfMembersToFile(memberList);
             return true;
         }
         return false;
     }
-
 
 }

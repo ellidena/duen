@@ -1,5 +1,6 @@
 package data;
 
+import domain.CompetitiveSwimmer;
 import domain.Member;
 
 import java.io.*;
@@ -46,10 +47,15 @@ public class MemberFileHandler {
                     Boolean isPaid = Boolean.parseBoolean(memberData[6]);
 
                     // Opretter så et Member objekt
-                    Member member = new Member(firstName, surName, phoneNumber, birthDate, isCompetitive, isActive, isPaid);
+                    Member member;
+                    if(isCompetitive){
+                        member = new CompetitiveSwimmer(firstName, surName, phoneNumber, birthDate, true, isActive, isPaid);
+                    }
+                    else {
+                        member = new Member(firstName, surName, phoneNumber, birthDate, isCompetitive, isActive, isPaid);
+                    }
                     // Tilføjer den samme member i ArrayListen
                     loadedMembers.add(member);
-
                 }
 
             }
@@ -92,13 +98,9 @@ public class MemberFileHandler {
             System.out.println("Der upstod en fejl under skrivning til filen");
             e.printStackTrace();
         }
-        finally {
-
-        }
     }
 
     // metode som får et String og laver det om til et LocalDate
-    //TODO: skal den her bruges? er den ikke også lavet et andet sted i programmet??? tjek op
     private LocalDate convertStringDateToLocalDate(String date){
         int birthYear = Integer.parseInt(date.split("-")[0]);
         int birthMonth = Integer.parseInt(date.split("-")[1]);
