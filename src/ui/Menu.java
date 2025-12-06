@@ -3,6 +3,7 @@ package ui;
 import controller.Database;
 import controller.MemberController;
 import controller.ResultController;
+import data.MemberFileHandler;
 import domain.*;
 import util.InvalidBirthYearException;
 import util.MemberNotFoundException;
@@ -10,11 +11,12 @@ import util.NotCompetitiveSwimmerException;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Menu {
     Scanner input = new Scanner(System.in);
-    private final Database database = new Database();
+    private final Database database = new Database(new MemberFileHandler("Memberlist.txt"));
     private final MemberController memberController = new MemberController(database);
     ResultController resultController = new ResultController(database);
 
@@ -455,9 +457,8 @@ public class Menu {
 
             CompetitiveSwimmer competitiveSwimmer = resultController.getCompetitiveSwimmer(phone);
 
-            // TODO: Can use Comparator here to sort results by date
-            // competitiveSwimmer.getResults() . . . // Comparator here
-            // competitiveSwimmer.getCompetitionResults() . . .
+            // Spørg bruger hvordan de skal sorteres
+            preferredSortingPrompt(competitiveSwimmer);
 
             System.out.println("\n- - - Resultater for "+
                     competitiveSwimmer.getFullName() + " - - -");
@@ -496,6 +497,35 @@ public class Menu {
         }
         catch (MemberNotFoundException | NotCompetitiveSwimmerException e){
             System.out.println("Fejl: " + e.getMessage());
+        }
+    }
+
+    private void preferredSortingPrompt(CompetitiveSwimmer competitiveSwimmer){
+        System.out.println("Hvordan vil du sortere resultater?");
+        System.out.println("1. Hurtigste tid");
+        System.out.println("2. Dato (nyeste først)");
+        System.out.println("3. Disciplin");
+        System.out.println("Valg : ");
+
+        int choice = readInt();
+
+        switch (choice) {
+            case 1:
+                // sorter efter tid (hurtigst først)
+                competitiveSwimmer.getTrainingResults().sort(Comparator.comparingInt(Result::getTimeMilliSeconds));
+                competitiveSwimmer.getCompetitionResults().sort(Comparator.comparingInt(CompetitionResult::getTimeMilliSeconds));
+            case 2:
+                // sorter efter dato (nyeste først)
+                competitiveSwimmer.getTrainingResults().sort(Comparator.comparing(Result::getDate).reversed());
+                competitiveSwimmer.getCompetitionResults().sort(Comparator.comparing(CompetitionResult::getDate));
+            case 3:
+                // Sortere efter disciplin alfabetisk
+                competitiveSwimmer.getTrainingResults().sort(Comparator.comparing(Result::getDiscipline));
+                competitiveSwimmer.getCompetitionResults().sort(Comparator.comparing(CompetitionResult::getDiscipline));
+            default:
+                System.out.println("Ugyltigt valg - sorter efter hurtigste tid");
+                competitiveSwimmer.getTrainingResults().sort(Comparator.comparingInt(Result::getTimeMilliSeconds));
+                competitiveSwimmer.getCompetitionResults().sort(Comparator.comparingInt(CompetitionResult::getTimeMilliSeconds));
         }
     }
 

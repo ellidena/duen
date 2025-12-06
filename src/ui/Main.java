@@ -1,3 +1,5 @@
+package ui;
+
 import controller.MemberController;
 import ui.Menu;
 
